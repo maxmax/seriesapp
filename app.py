@@ -32,13 +32,6 @@ def insert_document(collection, data):
     """
     return collection.insert_one(data).inserted_id
 
-# insert_data/find_one
-def insert_data(collection, data):
-    """ Function to insert a document into a collection and
-    return the document's id.
-    """
-    return collection.find_one(data)
-
 # update_document
 def update_document(collection, query_elements, new_values):
     """ Function to update a single document in a collection.
