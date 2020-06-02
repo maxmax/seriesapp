@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# dev
+cgi-bin-dev/
+index.html
+cgiserver.py
+README2.md
