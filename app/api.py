@@ -1,4 +1,4 @@
-#!flask/bin/python
+from app import app
 import json
 import time
 import datetime
@@ -6,10 +6,12 @@ import random
 from flask import Flask,jsonify, abort, request, url_for
 from flask_httpauth import HTTPBasicAuth
 #
-from db import db
-series_collection = db.series_collection
+#from db import db
+#series_collection = db.series_collection
+from .apidb import series_collection
+# series_collection = db.series_collection
 
-app = Flask(__name__)
+#app = Flask(__name__)
 
 ts = time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
@@ -113,7 +115,7 @@ def get_task(task_id):
     return jsonify({'task': series[0]})
 
 # post task
-# curl -i -H "Content-Type: application/json" -X POST -d '{"name":"dev2","done":false,"year":1980}' http://localhost:5000/todo/api/v1.0/tasks
+# curl -i -H "Content-Type: application/json" -X POST -d '{"name":"maxmax","done":false,"year":1980}' http://localhost:5000/todo/api/v1.0/tasks
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
 # @auth.login_required
 def create_task():
