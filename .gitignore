@@ -130,6 +130,6 @@ dmypy.json
 
 # dev
 cgi-bin-dev/
-index.html
 cgiserver.py
 README2.md
+/exemples

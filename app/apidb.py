@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-import cgi
 from pymongo import MongoClient
 
 # create a MongoDB client
