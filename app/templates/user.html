@@ -6,6 +6,11 @@
             <td><img src="{{ user.avatar(128) }}"></td>
             <td>
                 <h1>User: {{ user.username }}</h1>
+                {% if user.fullname %}<p>Fullname: {{ user.fullname }}</p>{% endif %}
+                {% if user.group %}<p>Group: {{ user.group }}</p>{% endif %}
+                {% if user.container %}<p>Container: {{ user.container }}</p>{% endif %}
+                {% if user.unixuser %}<p>Unixuser: {{ user.unixuser }}</p>{% endif %}
+                {% if user.unixid %}<p>UnixId: {{ user.unixid }}</p>{% endif %}
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
                 {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
                 <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
@@ -33,4 +38,10 @@
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Newer posts</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Older posts</a>
+    {% endif %}
 {% endblock %}

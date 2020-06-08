@@ -133,3 +133,4 @@ cgi-bin-dev/
 cgiserver.py
 README2.md
 /exemples
+/logs

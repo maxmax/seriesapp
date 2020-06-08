@@ -34,6 +34,11 @@ class RegistrationForm(FlaskForm):
 
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
+    fullname = StringField('Fullname', validators=[Length(min=0, max=120)])
+    group = StringField('Group', validators=[Length(min=0, max=120)])
+    container = StringField('Container', validators=[Length(min=0, max=120)])
+    unixuser = StringField('Unixuser', validators=[Length(min=0, max=120)])
+    unixid = StringField('Unixid', validators=[Length(min=0, max=120)])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
 
@@ -48,4 +53,8 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username.')
 
 class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')
+
+class PostForm(FlaskForm):
+    post = TextAreaField('Say something', validators=[DataRequired()])
     submit = SubmitField('Submit')
