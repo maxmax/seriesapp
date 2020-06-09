@@ -83,9 +83,9 @@ def not_found(error):
 def not_found(error):
     return make_response(jsonify( { 'error': 'Not found' } ), 404)
 
-@app.route('/')
-def index():
-    return "Hello, World!"
+# @app.route('/')
+# def index():
+#    return "Hello, World!"
 #
 
 # get tasks
