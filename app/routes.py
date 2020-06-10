@@ -1,6 +1,7 @@
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, jsonify
+from flask import render_template, flash, redirect, url_for, request, g, jsonify
 from flask_login import login_user, logout_user, current_user, login_required
+from flask_babel import _, get_locale
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, \
@@ -14,6 +15,8 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+    # g.locale = str(get_locale())
+    g.locale = get_locale()
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])

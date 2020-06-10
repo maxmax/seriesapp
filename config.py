@@ -13,6 +13,8 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['adminmail@adminmailtest.com'],
     POSTS_PER_PAGE = 25,
+    LANGUAGES = 'en',
+    # LANGUAGES = ['en', 'uk'],
     OPENID_PROVIDERS = [
         {'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id'},
         {'name': 'Yahoo', 'url': 'https://me.yahoo.com'},
