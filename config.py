@@ -18,7 +18,7 @@ class Config(object):
     POSTS_PER_PAGE = 25,
     LANGUAGES = 'en',
     # LANGUAGES = ['en', 'uk'],
-    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY'),
     OPENID_PROVIDERS = [
         {'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id'},
         {'name': 'Yahoo', 'url': 'https://me.yahoo.com'},
