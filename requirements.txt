@@ -14,6 +14,7 @@ distlib==0.3.0
 dnspython==1.16.0
 docutils==0.15.2
 dominate==2.5.1
+elasticsearch==7.7.1
 email-validator==1.1.1
 fastapi==0.55.1
 filelock==3.0.12
