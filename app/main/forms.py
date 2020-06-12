@@ -8,12 +8,13 @@ from app.models import User
 
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('About me'),
+                             validators=[Length(min=0, max=140)])
     fullname = StringField('Fullname', validators=[Length(min=0, max=120)])
     group = StringField('Group', validators=[Length(min=0, max=120)])
     container = StringField('Container', validators=[Length(min=0, max=120)])
     unixuser = StringField('Unixuser', validators=[Length(min=0, max=120)])
     unixid = StringField('Unixid', validators=[Length(min=0, max=120)])
-    about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):
@@ -35,6 +36,7 @@ class PostForm(FlaskForm):
     post = TextAreaField(_l('Say something'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
+
 class SearchForm(FlaskForm):
     q = StringField(_l('Search'), validators=[DataRequired()])
 
@@ -44,3 +46,9 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+
+class MessageForm(FlaskForm):
+    message = TextAreaField(_l('Message'), validators=[
+        DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField(_l('Submit'))
