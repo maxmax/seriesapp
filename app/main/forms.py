@@ -11,6 +11,9 @@ class EditProfileForm(FlaskForm):
     about_me = TextAreaField(_l('About me'),
                              validators=[Length(min=0, max=140)])
     fullname = StringField('Fullname', validators=[Length(min=0, max=120)])
+    givenname = StringField('Givenname', validators=[Length(min=0, max=120)])
+    surname = StringField('Surname', validators=[Length(min=0, max=120)])
+    name = StringField('Name', validators=[Length(min=0, max=120)])
     group = StringField('Group', validators=[Length(min=0, max=120)])
     container = StringField('Container', validators=[Length(min=0, max=120)])
     unixuser = StringField('Unixuser', validators=[Length(min=0, max=120)])

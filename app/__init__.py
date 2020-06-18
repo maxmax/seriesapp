@@ -51,7 +51,7 @@ def create_app(config_class=Config):
     app.register_blueprint(main_bp)
 
     from app.api import bp as api_bp
-    app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(api_bp, url_prefix='/services')
 
     if not app.debug and not app.testing:
         if app.config['MAIL_SERVER']:
@@ -86,7 +86,7 @@ def create_app(config_class=Config):
             app.logger.addHandler(file_handler)
 
         app.logger.setLevel(logging.INFO)
-        app.logger.info('Microblog startup')
+        app.logger.info('Seriesapp')
 
     return app
 

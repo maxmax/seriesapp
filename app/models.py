@@ -96,6 +96,9 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     fullname = db.Column(db.String(120))
+    givenname = db.Column(db.String(120))
+    surname = db.Column(db.String(120))
+    name = db.Column(db.String(120))
     group = db.Column(db.String(120))
     unixuser = db.Column(db.String(120))
     unixid = db.Column(db.String(120))
@@ -200,6 +203,10 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
             'last_seen': self.last_seen.isoformat() + 'Z',
             'about_me': self.about_me,
             'fullname': self.fullname,
+            'givenname': self.fullname,
+            'surname': self.fullname,
+            'name': self.fullname,
+            'email': self.email,
             'group': self.group,
             'unixuser': self.unixuser,
             'unixid': self.unixid,
@@ -217,9 +224,8 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
         if include_email:
             data['email'] = self.email
         return data
-
     def from_dict(self, data, new_user=False):
-        for field in ['username', 'email', 'about_me']:
+        for field in ['username', 'email', 'about_me', 'group', 'unixuser', 'unixid', 'container', 'fullname', 'givenname', 'surname', 'name']:
             if field in data:
                 setattr(self, field, data[field])
         if new_user and 'password' in data:
